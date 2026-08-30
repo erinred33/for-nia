@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+#welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("background1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+#welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.welcome-content {
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    color: #d65a82;
+    animation: welcomeFloat 2s ease-in-out infinite;
+}
+.welcome-content h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.welcome-content p {
+    font-size: 25px;
+    font-weight: 600;
+    animation: tapPulse 1.8s ease-in-out infinite;
+}
+@keyframes welcomeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+@keyframes tapPulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+#main-content {
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffdce9;
+}
+#tap-message {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Dancing Script, cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: #1a1618;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    animation: gentlePulse 2s ease-in-out infinite;
+}
+
+
+@keyframes gentlePulse {
+
+    0%, 100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+#character {
+    
+    width: min(470px, 100vw);
+    height: auto;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
